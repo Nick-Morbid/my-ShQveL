@@ -1,0 +1,6 @@
+beautifulsoup4
+langchain
+langchain-classic
+langchain-community
+langchain-openai
+PyYAML

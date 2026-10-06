@@ -1,0 +1,104 @@
+# PostgreSQL 18 documentation inputs for the controlled 15-datatype experiment.
+#
+# The 327 evaluation features are deliberately absent. Each configured topic
+# contains broad official documentation categories, giving ShQveL an open-ended
+# opportunity to discover the same feature families without leaking names.
+# Every topic has at most three pages, matching the paper's RAG setting (N=3).
+PostgreSQL:
+  datatype:
+    # Retained because chat.py uses this path for a datatype overview pass. The
+    # controlled experiment suppresses that pass with configuredDatatypesOnly.
+    overview:
+      - https://www.postgresql.org/docs/18/datatype.html
+
+    # Numeric functions/operators, comparisons, and aggregates.
+    integer function:
+      - https://www.postgresql.org/docs/18/functions-math.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+    double precision function:
+      - https://www.postgresql.org/docs/18/functions-math.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+    # Bit-string functions/operators and aggregates over bit strings.
+    bit function:
+      - https://www.postgresql.org/docs/18/functions-bitstring.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+    # Boolean operators, predicates, and boolean aggregates.
+    boolean function:
+      - https://www.postgresql.org/docs/18/functions-logical.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+    # Binary-string functions plus generic comparisons/aggregates.
+    bytea function:
+      - https://www.postgresql.org/docs/18/functions-binarystring.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+    # CHARACTER and TEXT jointly expose string, pattern, formatting, and
+    # conditional-expression families while respecting the three-page limit.
+    character function:
+      - https://www.postgresql.org/docs/18/functions-string.html
+      - https://www.postgresql.org/docs/18/functions-matching.html
+      - https://www.postgresql.org/docs/18/functions-conditional.html
+    text function:
+      - https://www.postgresql.org/docs/18/functions-string.html
+      - https://www.postgresql.org/docs/18/functions-formatting.html
+      - https://www.postgresql.org/docs/18/functions-conditional.html
+
+    # Temporal functions/operators, formatting, and temporal aggregates.
+    date function:
+      - https://www.postgresql.org/docs/18/functions-datetime.html
+      - https://www.postgresql.org/docs/18/functions-formatting.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+    time function:
+      - https://www.postgresql.org/docs/18/functions-datetime.html
+      - https://www.postgresql.org/docs/18/functions-formatting.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+    timestamp function:
+      - https://www.postgresql.org/docs/18/functions-datetime.html
+      - https://www.postgresql.org/docs/18/functions-formatting.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+    # Network functions/operators, comparisons, and aggregates.
+    cidr function:
+      - https://www.postgresql.org/docs/18/functions-net.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+    inet function:
+      - https://www.postgresql.org/docs/18/functions-net.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+    macaddr function:
+      - https://www.postgresql.org/docs/18/functions-net.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+    macaddr8 function:
+      - https://www.postgresql.org/docs/18/functions-net.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+    # UUID functions, comparisons, and aggregates.
+    uuid function:
+      - https://www.postgresql.org/docs/18/functions-uuid.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+
+  # These overviews are only for ShQveL's optional broad startup passes. They
+  # are not used by the controlled experiment, which sets
+  # --enable-function-overview-learning false and learns by datatype topic.
+  function:
+    overview:
+      - https://www.postgresql.org/docs/18/functions.html
+      - https://www.postgresql.org/docs/18/functions-aggregate.html
+      - https://www.postgresql.org/docs/18/functions-string.html
+
+  operator:
+    overview:
+      - https://www.postgresql.org/docs/18/functions.html
+      - https://www.postgresql.org/docs/18/functions-comparison.html
+      - https://www.postgresql.org/docs/18/functions-math.html

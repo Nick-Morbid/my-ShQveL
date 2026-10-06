@@ -1,0 +1,6 @@
+# Copy this file to dbconfigs/llm.properties and fill in the API key.
+# The base URL follows Zhizengzeng's OpenAI-compatible API documentation.
+api_key=
+base_url=https://api.zhizengzeng.com/v1
+fragment_model=gpt-4o
+summary_model=gpt-4o-mini

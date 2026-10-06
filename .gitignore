@@ -1,0 +1,61 @@
+# Private configuration and credentials. Keep only explicit templates.
+config/experiment.env
+work/SQLancerPlusPlus/dbconfigs/llm.properties
+work/SQLancerPlusPlus/dbconfigs/jdbc.properties
+**/.env
+**/.env.*
+!**/.env.example
+**/*api_key*
+**/*apikey*
+**/*secret*
+**/*credentials*
+**/GOOGLE_API.txt
+**/GOOGLE_CSE_ID.txt
+*.pem
+*.key
+
+# Harness runtime state and experiment output.
+logs/
+state/
+spool/
+validation/
+quarantine/
+replay/
+results/
+epochs/
+final-artifacts/
+final-coverage/
+*.log
+*.pid
+*.pid.completed
+*.info
+*.info.gz
+*.gcda
+*.gcno
+*.gcov
+
+# Dedicated DBMS source/build/install/data instances (recreated by scripts).
+postgres/
+mysql/
+
+# SQLancer++ generated output.
+work/SQLancerPlusPlus/target/
+work/SQLancerPlusPlus/logs/
+work/SQLancerPlusPlus/*.db
+
+# Language/editor/build caches.
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.idea/
+.vscode/
+.DS_Store
+
+# Temporary files and archives.
+*.part
+*.tmp
+*.tar
+*.tar.gz
+*.tgz
+*.zip

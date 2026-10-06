@@ -1,0 +1,62 @@
+# Reproducible documentation inputs for ShQveL's open-ended MySQL learning.
+#
+# This intentionally lists documentation categories, not the experiment's 189
+# target features.  The target catalog must remain evaluation-only.  Following
+# Algorithm 1 of the ShQveL paper, datatype-specific topics provide official
+# pages about expressions that consume or produce the currently learned type.
+MySQL:
+  datatype:
+    overview:
+      - https://dev.mysql.com/doc/refman/9.4/en/data-types.html
+
+    bit function:
+      - https://dev.mysql.com/doc/refman/9.4/en/bit-functions.html
+    integer function:
+      - https://dev.mysql.com/doc/refman/9.4/en/mathematical-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/arithmetic-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/comparison-operators.html
+    tinyint function: &numeric_function_docs
+      - https://dev.mysql.com/doc/refman/9.4/en/mathematical-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/arithmetic-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/comparison-operators.html
+    smallint function: *numeric_function_docs
+    mediumint function: *numeric_function_docs
+    bigint function: *numeric_function_docs
+    decimal function: *numeric_function_docs
+    boolean function:
+      - https://dev.mysql.com/doc/refman/9.4/en/logical-operators.html
+      - https://dev.mysql.com/doc/refman/9.4/en/comparison-operators.html
+    double function:
+      - https://dev.mysql.com/doc/refman/9.4/en/mathematical-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/arithmetic-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/comparison-operators.html
+    date function: &temporal_function_docs
+      - https://dev.mysql.com/doc/refman/9.4/en/date-and-time-functions.html
+    datetime function: *temporal_function_docs
+    timestamp function: *temporal_function_docs
+    time function: *temporal_function_docs
+    year function: *temporal_function_docs
+    char function: &string_function_docs
+      - https://dev.mysql.com/doc/refman/9.4/en/string-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/string-comparison-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/regexp.html
+    text function: *string_function_docs
+    varchar function: *string_function_docs
+    enum function: *string_function_docs
+    set function: *string_function_docs
+    blob function:
+      - https://dev.mysql.com/doc/refman/9.4/en/string-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/bit-functions.html
+      - https://dev.mysql.com/doc/refman/9.4/en/cast-functions.html
+    geometry function: &spatial_function_docs
+      - https://dev.mysql.com/doc/refman/9.4/en/spatial-function-reference.html
+    point function: *spatial_function_docs
+    polygon function: *spatial_function_docs
+
+  function:
+    overview:
+      - https://dev.mysql.com/doc/refman/9.4/en/built-in-function-reference.html
+
+  operator:
+    overview:
+      - https://dev.mysql.com/doc/refman/9.4/en/non-typed-operators.html

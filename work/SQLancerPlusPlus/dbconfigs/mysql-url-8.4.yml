@@ -1,0 +1,50 @@
+# Runnable fallback for environments where dev.mysql.com rejects automated
+# retrieval. Oracle's official MySQL 8.4 archive has the same broad-topic
+# structure, but it must not be presented as MySQL 9.4 documentation.
+MySQL:
+  datatype:
+    overview:
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/data-types.html
+    bit function:
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/bit-functions.html
+    integer function: &numeric_function_docs
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/mathematical-functions.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/arithmetic-functions.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/comparison-operators.html
+    double function: *numeric_function_docs
+    tinyint function: *numeric_function_docs
+    smallint function: *numeric_function_docs
+    mediumint function: *numeric_function_docs
+    bigint function: *numeric_function_docs
+    decimal function: *numeric_function_docs
+    boolean function:
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/logical-operators.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/comparison-operators.html
+    date function: &temporal_function_docs
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/date-and-time-functions.html
+    datetime function: *temporal_function_docs
+    timestamp function: *temporal_function_docs
+    time function: *temporal_function_docs
+    year function: *temporal_function_docs
+    char function: &string_function_docs
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/string-functions.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/string-comparison-functions.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/regexp.html
+    text function: *string_function_docs
+    varchar function: *string_function_docs
+    enum function: *string_function_docs
+    set function: *string_function_docs
+    blob function:
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/string-functions.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/bit-functions.html
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/cast-functions.html
+    geometry function: &spatial_function_docs
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/spatial-function-reference.html
+    point function: *spatial_function_docs
+    polygon function: *spatial_function_docs
+  function:
+    overview:
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/built-in-function-reference.html
+  operator:
+    overview:
+      - https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/non-typed-operators.html
