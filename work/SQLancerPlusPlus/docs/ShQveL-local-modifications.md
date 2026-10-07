@@ -265,3 +265,11 @@ New source/configuration files:
 - `dbconfigs/postgresql-url.yml`
 - `dbconfigs/postgresql/typegenerator.txt`
 - `dbconfigs/postgresql/disabled_options.csv`
+- `dbconfigs/mariadb-url-12.2.yml`
+- `dbconfigs/mariadb/disabled_options.csv`
+- `dbconfigs/tidb-url-8.5.yml`
+- `dbconfigs/tidb/disabled_options.csv`
+
+The Python documentation-loader DBMS mapping also contains explicit `mariadb -> MariaDB` and `tidb -> TiDB` entries.
+They only select the correct top-level official-documentation YAML key; they do not change prompts, sketch syntax,
+validation, scheduling, or SQL generation.

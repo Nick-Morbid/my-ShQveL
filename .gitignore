@@ -37,6 +37,8 @@ final-coverage/
 # Dedicated DBMS source/build/install/data instances (recreated by scripts).
 postgres/
 mysql/
+mariadb/
+/tidb/
 
 # SQLancer++ generated output.
 work/SQLancerPlusPlus/target/

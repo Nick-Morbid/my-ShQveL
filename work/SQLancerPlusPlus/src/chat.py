@@ -30,6 +30,8 @@ DBMS_MAPPING = defaultdict(lambda: "Unknown", {
     "cockroachdb" : "CockroachDB",
     "sqlite" : "SQLite",
     "mysql" : "MySQL",
+    "mariadb" : "MariaDB",
+    "tidb" : "TiDB",
 })
 
 OVERWRITE = True

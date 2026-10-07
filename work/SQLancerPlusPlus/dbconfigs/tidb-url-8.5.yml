@@ -1,0 +1,41 @@
+# Official TiDB v8.5 documentation used by ShQveL's documentation learner.
+TiDB:
+  datatype:
+    overview:
+      - https://docs.pingcap.com/tidb/v8.5/data-type-overview/
+    bit function: &bit_docs
+      - https://docs.pingcap.com/tidb/v8.5/operators/
+      - https://docs.pingcap.com/tidb/v8.5/bit-functions-and-operators/
+    integer function: &numeric_docs
+      - https://docs.pingcap.com/tidb/v8.5/numeric-functions-and-operators/
+      - https://docs.pingcap.com/tidb/v8.5/operators/
+    double function: *numeric_docs
+    tinyint function: *numeric_docs
+    smallint function: *numeric_docs
+    mediumint function: *numeric_docs
+    bigint function: *numeric_docs
+    decimal function: *numeric_docs
+    boolean function:
+      - https://docs.pingcap.com/tidb/v8.5/operators/
+      - https://docs.pingcap.com/tidb/v8.5/control-flow-functions/
+    date function: &temporal_docs
+      - https://docs.pingcap.com/tidb/v8.5/date-and-time-functions/
+    datetime function: *temporal_docs
+    timestamp function: *temporal_docs
+    time function: *temporal_docs
+    year function: *temporal_docs
+    char function: &string_docs
+      - https://docs.pingcap.com/tidb/v8.5/string-functions/
+    text function: *string_docs
+    varchar function: *string_docs
+    enum function: *string_docs
+    set function: *string_docs
+    blob function: *string_docs
+    json function:
+      - https://docs.pingcap.com/tidb/v8.5/json-functions/
+  function:
+    overview:
+      - https://docs.pingcap.com/tidb/v8.5/functions-and-operators-overview/
+  operator:
+    overview:
+      - https://docs.pingcap.com/tidb/v8.5/operators/

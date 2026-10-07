@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Turn a MySQL FILE general log into a deterministic replay stream."""
+"""Turn a MySQL or MariaDB FILE general log into a deterministic replay stream."""
 import argparse
 import gzip
 import json
@@ -12,13 +12,18 @@ parser.add_argument("--output", required=True)
 parser.add_argument("--summary", required=True)
 args = parser.parse_args()
 
-header = re.compile(
+mysql_header = re.compile(
     r"^(?P<timestamp>\d{4}-\d\d-\d\dT\S+)\s+"
     r"(?P<thread>\d+)\s+(?P<command>[A-Za-z ]+?)\t(?P<argument>.*)$"
+)
+mariadb_header = re.compile(
+    r"^(?:(?P<timestamp>\d{6}\s+\d{1,2}:\d\d:\d\d)\s+)?"
+    r"\s*(?P<thread>\d+)\s+(?P<command>Query|Execute|Prepare|Connect|Quit|Init DB)\t(?P<argument>.*)$"
 )
 events = []
 current = None
 databases = {}
+last_timestamp = "unknown"
 
 def finish():
     global current
@@ -32,11 +37,15 @@ source = Path(args.input)
 opener = gzip.open if source.suffix == ".gz" else open
 with opener(source, "rt", errors="replace") as stream:
     for line in stream:
-        match = header.match(line)
+        match = mysql_header.match(line) or mariadb_header.match(line)
         if match:
             finish()
             current = match.groupdict()
             current["thread"] = int(current["thread"])
+            if current.get("timestamp"):
+                last_timestamp = current["timestamp"]
+            else:
+                current["timestamp"] = last_timestamp
         elif current is not None:
             current["argument"] += "\n" + line.rstrip("\n")
 finish()
@@ -74,6 +83,13 @@ with gzip.open(args.output, "wt") as replay:
             if not sql.endswith(";"):
                 replay.write(";")
             replay.write("\n")
+            # General logs do not emit a separate "Init DB" event for every
+            # SQL USE statement. Track it explicitly so interleaved sessions
+            # are replayed under the same database as the original thread.
+            use_match = re.fullmatch(r"\s*USE\s+`?([^`;\s]+)`?\s*;?\s*", sql, re.IGNORECASE)
+            if use_match:
+                databases[thread] = use_match.group(1)
+                replay_database = use_match.group(1)
 
 Path(args.summary).write_text(json.dumps({
     "source": str(source),
@@ -81,5 +97,5 @@ Path(args.summary).write_text(json.dumps({
     "server_observed_statements": statement_count,
     "connections": connect_count,
     "outcomes_available": False,
-    "outcomes_note": "MySQL FILE general_log records received statements but not their result status; use ShQveL progress metrics for the reported success percentage.",
+    "outcomes_note": "MySQL/MariaDB FILE general_log records received statements but not their result status; use ShQveL progress metrics for the reported success percentage.",
 }, indent=2) + "\n")

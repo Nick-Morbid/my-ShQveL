@@ -1,0 +1,47 @@
+# Official MariaDB Server documentation used by ShQveL's documentation learner.
+# Topic-specific entries keep datatype learning comparable while overview pages
+# allow function/operator discovery without prescribing individual functions.
+MariaDB:
+  datatype:
+    overview:
+      - https://mariadb.com/docs/server/reference/data-types
+    bit function: &bit_docs
+      - https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/bit-functions-and-operators
+    integer function: &numeric_docs
+      - https://mariadb.com/docs/server/reference/sql-functions/numeric-functions
+      - https://mariadb.com/docs/server/reference/sql-structure/operators/arithmetic-operators
+      - https://mariadb.com/docs/server/reference/sql-structure/operators/comparison-operators
+    double function: *numeric_docs
+    tinyint function: *numeric_docs
+    smallint function: *numeric_docs
+    mediumint function: *numeric_docs
+    bigint function: *numeric_docs
+    decimal function: *numeric_docs
+    boolean function:
+      - https://mariadb.com/docs/server/reference/sql-structure/operators/logical-operators
+      - https://mariadb.com/docs/server/reference/sql-structure/operators/comparison-operators
+    date function: &temporal_docs
+      - https://mariadb.com/docs/server/reference/sql-functions/date-time-functions
+    datetime function: *temporal_docs
+    timestamp function: *temporal_docs
+    time function: *temporal_docs
+    year function: *temporal_docs
+    char function: &string_docs
+      - https://mariadb.com/docs/server/reference/sql-functions/string-functions
+      - https://mariadb.com/docs/server/reference/sql-functions/special-functions/regular-expressions-functions
+    text function: *string_docs
+    varchar function: *string_docs
+    enum function: *string_docs
+    set function: *string_docs
+    blob function: *string_docs
+    geometry function: &spatial_docs
+      - https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors
+      - https://mariadb.com/docs/server/reference/sql-functions/special-functions/geometry-functions
+    point function: *spatial_docs
+    polygon function: *spatial_docs
+  function:
+    overview:
+      - https://mariadb.com/docs/server/reference/sql-functions
+  operator:
+    overview:
+      - https://mariadb.com/docs/server/reference/sql-structure/operators
